@@ -53,7 +53,7 @@ proxy-groups:
 proxy-providers:
   Trojanさくら🍀:
     type: file
-    path: ./provide/Trojan.yaml
+    path: ./provide/Trojan.yaml #lokasi file yaml nya
     health-check:
       enable: true
       interval: 300
