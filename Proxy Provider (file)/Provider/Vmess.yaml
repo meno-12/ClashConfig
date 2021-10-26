@@ -1,30 +1,6 @@
-tproxy-port: 7893
-port: 7890
-socks-port: 7891
-redir-port: 7892
-mixed-port: 7894
-bind-address: '*'
-mode: rule
-allow-lan: true
-log-level: silent
-ipv6: true
-external-controller: 127.0.0.1:9090
-external-ui: clash-dashboard/dist
-udp: true
-dns:
-    enable: true
-    listen: 0.0.0.0:1053
-    ipv6: true
-    enhanced-mode: redir-host #fake-ip #redir-host
-    #fake-ip-range: 198.18.0.1/16
-    default-nameserver:
-      - 1.1.1.1
-      - 1.0.0.1
-    nameserver:
-      - 52.113.194.132
-      - 1.1.1.1 
-      - 1.0.0.1 
-      - https://1.1.1.1/dns-query 
-      #- 142.250.217.142
+
 proxies:
-  - {name: vmeess WsTls, server: 1234, port: 1234, type: vmess, uuid: xxxx-xxxx-xxxxx-xxxx, alterId: 0, cipher: auto, udp: true, servername: maps.google.com, tls: true, skip-cert-verify: true, network: ws, ws-path: /howdy, ws-headers: {Host: maps.gstatic.com;maps.google.com;teams.microsoft.com}, sni: maps.gstatic.com;teams.live.com}
+  - {name: vmeess WsTls, server: 1234, port: 1234, type: vmess, uuid: xxxx-xxxx-xxxxx-xxxx, alterId: 0, cipher: auto, udp: true, servername: maps.google.com, tls: true, skip-cert-verify: true, network: ws, ws-path: /howdy, ws-headers: {Host: maps.gstatic.com;maps.google.com;teams.microsoft.com}, sni: maps.gstatic.com}
+
+
+
