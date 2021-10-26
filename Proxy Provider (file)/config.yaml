@@ -1,0 +1,119 @@
+proxies:
+proxy-groups:
+  - name: Useさくら🍀
+    type: select
+    use:
+      - Trojanさくら🍀
+      - Vlessさくら🍀
+      - Vmessさくら🍀
+      - Socks5さくら🍀
+      - Shadowsocksさくら🍀
+    proxies:
+      - さくらPing🍀
+      - さくらBalance🍀
+      - さくらfallback🍀
+      - REJECT
+      - DIRECT
+
+  - name: さくらPing🍀
+    type: url-test
+    url: 'http://connectivitycheck.gstatic.com/generate_204'
+    interval: 8600
+    tolerance: 50
+    use:
+      - Trojanさくら🍀
+      - Vlessさくら🍀
+      - Vmessさくら🍀
+      - Socks5さくら🍀
+      - Shadowsocksさくら🍀
+      
+  - name: さくらBalance🍀
+    type: load-balance
+    use:
+      - Trojanさくら🍀
+      - Vlessさくら🍀
+      - Vmessさくら🍀
+      - Socks5さくら🍀
+      - Shadowsocksさくら🍀
+    url: 'http://connectivitycheck.gstatic.com/generate_204'
+    interval: 8600
+    strategy: consistent-hashing #consistent-hashing #round-robin
+    
+  - name: さくらfallback🍀
+    type: fallback
+    use:
+      - Trojanさくら🍀
+      - Vlessさくら🍀
+      - Vmessさくら🍀
+      - Socks5さくら🍀
+      - Shadowsocksさくら🍀
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 8600
+    
+proxy-providers:
+  Trojanさくら🍀:
+    type: file
+    path: ./provide/Trojan.yaml
+    health-check:
+      enable: true
+      interval: 300
+      lazy: true
+      url: 'http://connectivitycheck.gstatic.com/generate_204'
+      
+  Vmessさくら🍀:
+    type: file
+    path: ./provide/Vmess.yaml
+    health-check:
+      enable: true
+      interval: 300
+      lazy: true
+      url: 'http://connectivitycheck.gstatic.com/generate_204'
+
+  Shadowsocksさくら🍀:
+    type: file
+    path: ./provide/Shadowsocks.yaml
+    health-check:
+      enable: true
+      interval: 300
+      lazy: true
+      url: 'http://connectivitycheck.gstatic.com/generate_204'
+      
+  Vlessさくら🍀:
+    type: file
+    path: ./provide/Vless.yaml
+    health-check:
+      enable: true
+      interval: 300
+      lazy: true
+      url: 'http://connectivitycheck.gstatic.com/generate_204'
+      
+  Socks5さくら🍀:
+    type: file
+    path: ./provide/Socks5.yaml
+    health-check:
+      enable: true
+      interval: 300
+      lazy: true
+      url: 'http://connectivitycheck.gstatic.com/generate_204'
+
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt"
+    path: ./rule/reject.yaml
+    interval: 86400  
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./rule/lancidr.yaml
+    interval: 86400                    
+
+rules:
+  - RULE-SET,lancidr,DIRECT,no-resolve
+  - RULE-SET,reject,REJECT
+  - GEOIP,IR,Useさくら🍀
+  - GEOIP,Useさくら🍀
+  - MATCH,Useさくら🍀
