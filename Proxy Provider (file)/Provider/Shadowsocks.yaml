@@ -28,3 +28,13 @@ dns:
       #- 142.250.217.142
 proxies:
   - {name: sodok, type: ss, server: abc.com, port: 1234, cipher: aes-256-cfb, password: shadowsocks, udp: true, skip-cert-verify: true, plugin: obfs, plugin-opts: {mode: tls, host: maps.gstatic.com;maps.google.com}, sni: maps.gstatic.com;maps.google.com}
+
+
+
+
+
+
+
+
+
+
