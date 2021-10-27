@@ -1,8 +1,8 @@
 
 proxies:
-  - {name: sodok, type: ss, server: abc.com, port: 1234, cipher: aes-256-cfb, password: shadowsocks, udp: true, skip-cert-verify: true, plugin: obfs, plugin-opts: {mode: tls, host: maps.gstatic.com;maps.google.com}, sni: maps.gstatic.com;maps.google.com}
+  - {name: sodok, type: ss, server: abc.com, port: 1234, cipher: aes-256-cfb, password: 12345, udp: true, skip-cert-verify: true, plugin: obfs, plugin-opts: {mode: tls, host: bug.com}, sni: bug.com}
 
-
+  - {name: Artunnel Ssr, server: abc.com, port: 1234, type: ssr, cipher: aes-256-cfb, password: 12345, protocol: auth_sha1_v4, obfs: tls1.2_ticket_auth, protocol-param: bug.com, obfs-param: bug.com, udp: true}
 
 
 
