@@ -1,1 +1,13 @@
-#
+# NAME: ip Indonesia
+# AUTHOR: mje
+# REPO: 
+# UPDATED: 
+# DOMAIN-KEYWORD: 
+# IP-CIDR: 
+# DOMAIN-SUFFIX: 
+# DOMAIN: 
+# TOTAL: 
+payload:
+  - DOMAIN,komiku.id
+  - DOMAIN-SUFFIX,komiku.id
+  - DOMAIN-KEYWORD,komiku
