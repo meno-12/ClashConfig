@@ -34,9 +34,6 @@ proxy-groups:
     proxies: 
       - trojanそれsocksさ☘
       - vlessそれvmessさ☘
-      - shadowsocksさ☘
-    proxies:
-      
 rule-providers:
   reject:
     type: http
