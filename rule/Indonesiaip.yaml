@@ -11,3 +11,13 @@ payload:
   - DOMAIN,komiku.id
   - DOMAIN-SUFFIX,komiku.id
   - DOMAIN-KEYWORD,komiku
+  - DOMAIN,otakudesu.vip
+  - DOMAIN-SUFFIX,otakudesu.vip
+  - DOMAIN-KEYWORD,otakudesu
+  - DOMAIN,oploverz.eu
+  - DOMAIN-SUFFIX,oploverz.eu
+  - DOMAIN-KEYWORD,oploverz
+  - DOMAIN,fastssh.com
+  - DOMAIN-SUFFIX,fastssh.com
+  - DOMAIN-KEYWORD,fastssh
+
