@@ -17,7 +17,7 @@ payload:
   - DOMAIN,oploverz.eu
   - DOMAIN-SUFFIX,oploverz.eu
   - DOMAIN-KEYWORD,oploverz
-  - DOMAIN,fastssh.com
-  - DOMAIN-SUFFIX,fastssh.com
-  - DOMAIN-KEYWORD,fastssh
+ # - DOMAIN,fastssh.com
+ # - DOMAIN-SUFFIX,fastssh.com
+ # - DOMAIN-KEYWORD,fastssh
 
