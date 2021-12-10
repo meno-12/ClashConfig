@@ -1,0 +1,129 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7894
+tproxy-port: 7893
+bind-address: '*'
+mode: rule
+allow-lan: true
+log-level: debug
+external-controller: 127.0.0.1:9090
+external-ui: dashboard
+#interface-name: bond0, dummy0, lo
+experimental:
+  ignore-resolve-fail: true
+ipv6: true
+profile:
+  store-selected: true
+  tracing: true
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  enhanced-mode: redir-host # redir-host or fake-ip
+  #fake-ip-range: 28.0.0.0/8
+  #fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  nameserver:
+      - https://cloudflare-dns.com/dns-query
+      - tls://dns.google
+proxies:
+proxy-groups:
+  - name: Clover약☘
+    type: select
+    use: 
+      - Clover약☘
+    proxies:
+      - DIRECT
+
+  - name: Streaming약☘  
+    type: select
+    use: 
+      - multimedia약☘
+    proxies:
+      - DIRECT
+                      
+  - name: Sosmed약☘  
+    type: select
+    use: 
+      - multimedia약☘
+    proxies:
+      - DIRECT
+
+  - name: Indonesia약☘
+    type: load-balance
+    use:
+      - Indonesia약☘ 
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    strategy: round-robin # or round-robin  
+   #lazy: true
+   #disable-udp: true
+
+  - name: ads block약☘
+    type: select
+    proxies:
+      - Clover약☘
+      - REJECT
+                                    
+proxy-providers: 
+  Clover약☘:
+    type: file
+    path: ./premium/provide/account.yaml
+    health-check:
+      url: 'http://connectivitycheck.gstatic.com/generate_204'
+      enable: true
+      interval: 600
+   
+  Indonesia약☘:
+    type: file
+    path: ./premium/provide/ipindo.yaml
+    health-check:
+      url: 'http://connectivitycheck.gstatic.com/generate_204'
+      enable: true
+      interval: 600
+
+  multimedia약☘:
+    type: file
+    path: ./premium/provide/multimedia.yaml
+    health-check:
+      enable: true
+      url: 'http://connectivitycheck.gstatic.com/generate_204'
+      interval: 600
+
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt"
+    path: ./premium/rules/reject.yaml
+    interval: 86400
+    
+  sosmed:
+    type: http
+    behavior: "classical"
+    url: "https://raw.githubusercontent.com/juwanda0/exampleClashConfig/main/rule/sosialmedia.yaml"
+    path: ./premium/rules/sosmed.yaml
+    #interval: 86400
+
+  streaming:
+    behavior: "classical" # domain, ipcidr or classical (premium core only)
+    type: http
+    url: "https://raw.githubusercontent.com/r3yr3/huge/master/rule/Clash/YouTube/YouTube.yaml"
+    #interval: 86400
+    path: ./premium/rules/streaming.yaml
+    
+  indonesia:
+    behavior: "classical" # domain, ipcidr or classical (premium core only)
+    type: http
+    url: "https://raw.githubusercontent.com/juwanda0/exampleClashConfig/main/rule/Indonesiaip.yaml"
+    interval: 86400
+    path: ./premium/rules/Indonesian.yaml          
+rules:
+  - RULE-SET,reject,ads block약☘
+  - RULE-SET,indonesia,Indonesia약☘ 
+  - RULE-SET,sosmed,Sosmed약☘
+  - RULE-SET,streaming,Streaming약☘ 
+  - MATCH,Clover약☘
+  
+#☘
