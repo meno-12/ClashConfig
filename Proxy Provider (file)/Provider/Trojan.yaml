@@ -2,4 +2,18 @@
 proxies:
   - {name: Trojan, server: 1234, port: 1234, type: trojan, password: xxxx-xxxx-xxxxx-xxxx, skip-cert-verify: true, udp: true, sni: maps.gstatic.com;maps.google.com} #id3-trojan.bonds.id
 
-
+ - name: "[Trojan] Trojan-Go"
+   server: server
+   port: 443
+   type: trojan
+   password: "example"
+   network: ws
+   sni: example.com
+   servername: example.com
+   skip-cert-verify: true 
+   tls: true
+   udp: true
+   ws-opts:
+     path: /path
+     headers:
+       Host: example.com
