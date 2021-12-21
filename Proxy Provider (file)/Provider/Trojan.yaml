@@ -17,3 +17,15 @@ proxies:
      path: /path
      headers:
        Host: example.com
+
+ - name: "[Trojan] gRPC"
+   type: trojan
+   server: host.mu
+   port: 443
+   password: "password"
+   udp: true
+   sni: "bug.com"
+   skip-cert-verify: true
+   network: grpc
+   grpc-opts:
+     grpc-service-name: path-service-dari-seller-vpn
