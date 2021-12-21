@@ -4,4 +4,18 @@ proxies:
  
   - {name: WsTls, type: vless, server: 1234, port: 1234, uuid: xxxx-xxxx-xxxxx-xxxx, tls: true, udp: true, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: maps.gstatic.com;maps.google.com}, sni: maps.gstatic.com;maps.google.com}
 
-
+  - name: "[vless] Vless gRPC"
+    server: your server
+    port: port
+    type: vless
+    uuid: "password"
+    network: grpc
+    gRPC-mode: gun
+    tls: true
+    servername: "bug"
+    sni: "bug"
+    udp: true
+    skip-cert-verify: true
+    grpc-opts: 
+      grpc-service-name: "service name grpc"
+ 
