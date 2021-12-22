@@ -1,8 +1,8 @@
 
 proxies:
-  - {name: TcpXtls, type: vless, server: 1234, port: 443, uuid: xxxx-xxxx-xxxxx-xxxx, xtls: true, tls: true, udp: true, skip-cert-verify: true, servername: maps.gstatic.com;maps.google.com, network: tcp, flow: xtls-rprx-direct, sni: maps.gstatic.com;maps.google.com}
+  - {name: TcpXtls, type: vless, server: 1234, port: 443, uuid: xxxx-xxxx-xxxxx-xxxx, xtls: true, tls: true, udp: true, skip-cert-verify: true, servername: maps.gstatic.com;maps.google.com, network: tcp, flow: xtls-rprx-direct, sni: bug.com}
  
-  - {name: WsTls, type: vless, server: 1234, port: 1234, uuid: xxxx-xxxx-xxxxx-xxxx, tls: true, udp: true, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: maps.gstatic.com;maps.google.com}, sni: maps.gstatic.com;maps.google.com}
+  - {name: WsTls, type: vless, server: 1234, port: 1234, uuid: xxxx-xxxx-xxxxx-xxxx, tls: true, udp: true, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: bug.com}, sni: bug.com}
 
   - name: "[vless] Vless gRPC"
     server: your server
