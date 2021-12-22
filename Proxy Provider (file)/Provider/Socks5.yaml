@@ -1,6 +1,6 @@
 
 proxies:
-  - {name: Socks5 Id, type: socks5, server: maps.google.com.id-socks5.woiden.net, port: 443, username: woiden_tr, password: tr, tls: true, skip-cert-verify: true, udp: true, sni: maps.gstatic.com;maps.google.com}
+  - {name: Socks5 Id, type: socks5, server: maps.google.com.id-socks5.woiden.net, port: 443, username: woiden_tr, password: tr, tls: true, skip-cert-verify: true, udp: true}
 
 
 
