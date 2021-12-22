@@ -1,6 +1,6 @@
 
 proxies:
- - {name: Trojan, server: 1234, port: 1234, type: trojan, password: xxxx-xxxx-xxxxx-xxxx, skip-cert-verify: true, udp: true, sni: maps.gstatic.com;maps.google.com} #id3-trojan.bonds.id
+ - {name: Trojan, server: 1234, port: 1234, type: trojan, password: xxxx-xxxx-xxxxx-xxxx, skip-cert-verify: true, udp: true, sni: bug.com}
 
  - name: "[Trojan] Trojan-Go"
    server: server
