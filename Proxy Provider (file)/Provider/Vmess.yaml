@@ -1,6 +1,6 @@
 
 proxies:
-  - {name: vmeess WsTls, server: 1234, port: 1234, type: vmess, uuid: xxxx-xxxx-xxxxx-xxxx, alterId: 0, cipher: auto, udp: true, servername: maps.google.com, tls: true, skip-cert-verify: true, network: ws, ws-path: /howdy, ws-headers: {Host: maps.gstatic.com;maps.google.com;teams.microsoft.com}, sni: maps.gstatic.com}
+  - {name: vmeess WsTls, server: 1234, port: 1234, type: vmess, uuid: xxxx-xxxx-xxxxx-xxxx, alterId: 0, cipher: auto, udp: true, servername: maps.google.com, tls: true, skip-cert-verify: true, network: ws, ws-path: /howdy, ws-headers: {Host: bug.com}, sni: bug.com}
 
   - {name: VmessGrpcTls, server: abc.com, port: 1234, type: vmess, uuid: xxxx-xxxx-xxxx-xxxx, alterId: 00, cipher: auto, udp: true, network: grpc, tls: true, servername: bug.com, skip-cert-verify: true, grpc-opts: {grpc-service-name: bug.com}, sni: bug.com}
 
