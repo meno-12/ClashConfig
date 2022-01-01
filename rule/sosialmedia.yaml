@@ -81,7 +81,6 @@ payload:
 # IP-CIDR: 2
 # IP-CIDR6: 1
 # TOTAL: 179
-payload:
   - DOMAIN,youtubei.googleapis.com
   - DOMAIN,yt3.ggpht.com
   - DOMAIN-SUFFIX,.youtube
