@@ -1,119 +1,93 @@
+tproxy-port: 7893
+bind-address: '*'
+mode: rule
+allow-lan: true
+log-level: warning
+external-controller: 0.0.0.0:9090
+external-ui: yacd-gh-pages
+unified-delay: true
+ipv6: false
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 28.0.0.0/8
+  use-hosts: true
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
+  fallback:
+    - https://dns.google/dns-query  
 proxies:
 proxy-groups:
-  - name: Useさくら🍀
+  - name: 🫐anggur
     type: select
+    filter: 'ssr|trojan|vless|vmess|socks5|DIRECT'
     use:
-      - Trojanさくら🍀
-      - Vlessさくら🍀
-      - Vmessさくら🍀
-      - Socks5さくら🍀
-      - Shadowsocksさくら🍀
+      - 🫐Accounting
     proxies:
-      - さくらPing🍀
-      - さくらBalance🍀
-      - さくらfallback🍀
-      - REJECT
       - DIRECT
-
-  - name: さくらPing🍀
-    type: url-test
-    url: 'http://connectivitycheck.gstatic.com/generate_204'
-    interval: 8600
-    tolerance: 50
+  - name: 🫐indonesia
+    type: select
+    filter: '🍏unimet|🐯Atha|DIRECT'
     use:
-      - Trojanさくら🍀
-      - Vlessさくら🍀
-      - Vmessさくら🍀
-      - Socks5さくら🍀
-      - Shadowsocksさくら🍀
-      
-  - name: さくらBalance🍀
-    type: load-balance
+      - 🫐Accounting
+    proxies:
+      - DIRECT
+  - name: 🥝sosial media
+    type: select
+    filter: '🫐He|🍇He|🐱Sggs|🥥Cantabo|DIRECT'
     use:
-      - Trojanさくら🍀
-      - Vlessさくら🍀
-      - Vmessさくら🍀
-      - Socks5さくら🍀
-      - Shadowsocksさくら🍀
-    url: 'http://connectivitycheck.gstatic.com/generate_204'
-    interval: 8600
-    strategy: consistent-hashing #consistent-hashing #round-robin
-    
-  - name: さくらfallback🍀
-    type: fallback
+      - 🫐Accounting
+    proxies:
+      - DIRECT
+  - name: 🥝streaming
+    type: select
+    filter: '🫐He|🍇He|🐯Atha|DIRECT'
     use:
-      - Trojanさくら🍀
-      - Vlessさくら🍀
-      - Vmessさくら🍀
-      - Socks5さくら🍀
-      - Shadowsocksさくら🍀
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 8600
-    
+      - 🫐Accounting
+    proxies:
+      - DIRECT
+  - name: 🌻ads block
+    type: select
+    proxies:    
+      - DIRECT
+      - REJECT
 proxy-providers:
-  Trojanさくら🍀:
+  🫐Accounting:
     type: file
-    path: ./provide/Trojan.yaml #lokasi file yaml nya
+    path: ./confs/config.yaml
     health-check:
-      enable: true
-      interval: 300
-      lazy: true
-      url: 'http://connectivitycheck.gstatic.com/generate_204'
-      
-  Vmessさくら🍀:
-    type: file
-    path: ./provide/Vmess.yaml
-    health-check:
-      enable: true
-      interval: 300
-      lazy: true
-      url: 'http://connectivitycheck.gstatic.com/generate_204'
-
-  Shadowsocksさくら🍀:
-    type: file
-    path: ./provide/Shadowsocks.yaml
-    health-check:
-      enable: true
-      interval: 300
-      lazy: true
-      url: 'http://connectivitycheck.gstatic.com/generate_204'
-      
-  Vlessさくら🍀:
-    type: file
-    path: ./provide/Vless.yaml
-    health-check:
-      enable: true
-      interval: 300
-      lazy: true
-      url: 'http://connectivitycheck.gstatic.com/generate_204'
-      
-  Socks5さくら🍀:
-    type: file
-    path: ./provide/Socks5.yaml
-    health-check:
-      enable: true
-      interval: 300
-      lazy: true
-      url: 'http://connectivitycheck.gstatic.com/generate_204'
-
+     enable: true
+     interval: 600
+     url: http://www.gstatic.com/generate_204
 rule-providers:
-  reject:
+  ads block🌻:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt"
-    path: ./rule/reject.yaml
-    interval: 86400  
-
-  lancidr:
-    type: http
-    behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
-    path: ./rule/lancidr.yaml
-    interval: 86400                    
-
+    url: "https://bit.ly/3mhQskP"
+    path: ./confs/rules/reject.yaml
+    interval: 86400
+  private block🌻:
+    type: file
+    behavior: classical
+    path: ./confs/rules/block.yaml
+  indonesia🫐:
+    type: file
+    behavior: classical
+    path: ./confs/rules/Indonesia.yaml
+  sosial media🥝:
+    type: file
+    behavior: classical
+    path: ./confs/rules/sosial.yaml
+  streaming🥝:
+    type: file
+    behavior: classical
+    path: ./confs/rules/streaming.yaml
 rules:
-  - RULE-SET,lancidr,DIRECT,no-resolve
-  - RULE-SET,reject,REJECT
-  - GEOIP,IR,Useさくら🍀
-  - GEOIP,Useさくら🍀
-  - MATCH,Useさくら🍀
+  - RULE-SET,ads block🌻,🌻ads block
+  - RULE-SET,private block🌻,🌻ads block
+  - RULE-SET,indonesia🫐,🫐indonesia
+  - RULE-SET,sosial media🥝,🥝sosial media
+  - RULE-SET,streaming🥝,🥝streaming
+  - MATCH,🫐anggur
