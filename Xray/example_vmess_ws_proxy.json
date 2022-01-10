@@ -1,0 +1,45 @@
+{
+  "outbounds": [
+    {
+      "mux": {
+        "concurrency": 8,
+        "enabled": false
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": " ", // Ganti dengan nama domain atau IP server Anda (tidak perlu menyelesaikan nama domain saat membuat permintaan)
+            "port": 8080,
+            "users": [
+              {
+                "alterId": 22,
+                "encryption": "",
+                "flow": "",
+                "id": "073f522b-f0bc-4bff-cced-325a5e4f83ca", // Isi Anda UUID
+                "level": 8,
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": true,
+          "serverName": "bug" // Ubah ke nama domain Anda
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "bug" // Ubah ke nama domain Anda
+          },
+          "path": "/baka" // Harus diganti dengan PATH khusus, yang harus konsisten dengan server
+        }
+      },
+      "tag": "proxy"
+      }
+    ]
+  }
+}

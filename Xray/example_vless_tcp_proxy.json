@@ -1,0 +1,44 @@
+{
+    "outbounds": [
+        {
+            "tag": "proxy",
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "1.2.3.4", // Ganti dengan nama domain atau IP server Anda (tidak perlu menyelesaikan nama domain saat membuat permintaan)
+                        "port": 80, //Isi port anda
+                        "users": [
+                            {
+                                "id": "isi uuid", // Isi Anda UUID
+                                "alterId": 0,
+                                "email": "t@t.tt",
+                                "security": "none",
+                                "encryption": "none",
+                                "flow": "xtls-rprx-direct" //"xtls-rprx-direct" "xtls-rprx-origin"
+                            }
+                        ]
+                    }
+                ],
+                "servers": null,
+                "response": null
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "xtls", // gantu xtls jika tidak support
+                "xtlsSettings": { // ganti xtlsSetting
+                    "allowInsecure": true,
+                    "serverName": "bug" // Ubah ke nama domain Anda
+                },
+                "tcpSettings": null,
+                "sockopt": {
+                    "domainStrategy": "IPIfNonMatch"
+                }
+            },
+            "mux": {
+                "concurrency": -1,
+                "enabled": false
+            }
+        }
+    ]
+}

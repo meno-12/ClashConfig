@@ -1,0 +1,27 @@
+{
+    "outbounds": [
+        {
+            "protocol": "shadowsocks",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "{{ baka.mjee.me }}",
+                        "port": 445,
+                        "method": "chacha20-poly1305",
+                        "password": "{{ mje }}"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "tls",
+                "tcpSettings": {
+                    "hosts": "maps.google.com",
+                    "serviceName": "bug",
+                    "allowInsecure": true
+                }
+            },
+            "tag": "proxy"
+        }
+    ]
+}

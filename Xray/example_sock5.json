@@ -1,0 +1,30 @@
+{
+    "outbounds": [
+        {
+            "protocol": "socks",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "103.253.24.243", // Ganti dengan nama domain atau IP server Anda (tidak perlu menyelesaikan nama domain saat membuat permintaan)
+                        "port": 443, // Isi port Anda
+                        "users": [
+                            {
+                                "user": "woiden_lamaa", // username anda
+                                "pass": "lamaa" // password anda
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "tls",
+                "tlsSettings": {
+                    "serverName": "bug", // Ubah ke nama domain Anda
+                    "allowInsecure": true
+                }
+            },
+            "tag": "proxy"
+        }
+    ]
+}

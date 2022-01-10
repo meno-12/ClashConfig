@@ -1,0 +1,47 @@
+{
+    "outbounds": [
+        {
+            "tag": "proxy2",
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "34.101.190.177", // Ganti dengan nama domain atau IP server Anda (tidak perlu menyelesaikan nama domain saat membuat permintaan)
+                        "port": 443,
+                        "users": [
+                            {
+                                "id": "f210d767-1c36-4a1e-8ad0-306f343da641", // Isi Anda UUID
+                                "security": "none",
+                                "encryption": "none",
+                                "flow": "" // "flow": "xtls-rprx-direct" "xtls-rprx-origin"
+                            }
+                        ]
+                    }
+                ],
+                "servers": null,
+                "response": null
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "allowInsecure": true,
+                    "serverName": "maps.gstatic.com;meetings.googleapis.com;maps.google.com;teams.live.com;cdn.zoom.us;teams.microsoft.com" // Ubah ke nama domain Anda
+                },
+                "wsSettings": {
+                  "path": "/v2ray", // Harus diganti dengan PATH khusus, yang harus konsisten dengan server
+                  "headers": {
+                     "Host": "maps.gstatic.com;meetings.googleapis.com;maps.google.com;teams.live.com;cdn.zoom.us;teams.microsoft.com" // Ubah ke nama domain Anda
+                  }
+                },
+                "sockopt": {
+                    "domainStrategy": "IPIfNonMatch"
+                }
+            },
+            "mux": {
+                "concurrency": -1,
+                "enabled": false
+            }
+        }
+    ]
+}

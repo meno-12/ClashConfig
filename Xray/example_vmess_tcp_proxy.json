@@ -1,0 +1,40 @@
+{
+    "outbounds": [
+        {
+            "tag": "proxy",        
+            "protocol": "vmess",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "example.com", // Ganti dengan nama domain atau IP server Anda (tidak perlu menyelesaikan nama domain saat membuat permintaan)
+                        "port": 443, // Isi port anda
+                        "users": [
+                            {
+                                "id": "", // Isi Anda UUID
+                                "security": "none",
+                                "level": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "tls",
+                "tlsSettings": {
+                    "serverName": "example.com" // Ubah ke nama domain Anda
+                },
+                "tcpSettings": {
+                    "header": {
+                        "type": "http",
+                        "request": {
+                            "path": [
+                                "/vmesstcp" // Harus diganti dengan PATH khusus, yang harus konsisten dengan server
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
