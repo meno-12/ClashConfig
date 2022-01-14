@@ -61,7 +61,7 @@ rule-providers:
   ads block:
     type: http
     behavior: domain
-    url: "https://bit.ly/3mhQskP"
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
     path: ./confs/rules/reject.yaml
     interval: 86400
   private block:
